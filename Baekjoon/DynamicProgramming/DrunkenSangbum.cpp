@@ -2,29 +2,29 @@
 #include <iostream>
 #include <vector>
 /*
-	n°³ÀÇ ¹æÀÌ ÀÏ·Ä·Î ´Ã¾î¼± °¨¿ÁÀÌ ÀÖ´Ù. 
+	nê°œì˜ ë°©ì´ ì¼ë ¬ë¡œ ëŠ˜ì–´ì„  ê°ì˜¥ì´ ìžˆë‹¤. 
 	
-	°ÔÀÓÀÇ Ã¹ ¹øÂ° ¶ó¿îµå¿¡¼­ °¨¿ÁÀ» ÇÑ °³¾¿ ¸ðµÎ ¿¬´Ù. 
-	±× ´ÙÀ½ ¶ó¿îµå¿¡¼­´Â 2, 4, 6, ... ¹ø ¹æÀ» ´Ù½Ã Àá±×°í, 
-	¼¼ ¹øÂ° ¶ó¿îµå¿¡¼­´Â 3, 6, 9, ... ¹ø ¹æÀÌ ¿­·ÁÀÖÀ¸¸é Àá±×°í, Àá°ÜÀÖ´Ù¸é ¿¬´Ù. 
-	k¹øÂ° ¶ó¿îµå¿¡¼­´Â ¹øÈ£°¡ kÀÇ ¹è¼öÀÎ ¹æÀÌ ¿­·Á ÀÖÀ¸¸é Àá±×°í, Àá°Ü ÀÖ´Ù¸é ¿¬´Ù.
-	ÀÌ·¸°Ô n¹øÂ° ¶ó¿îµå±îÁö ÁøÇàÇÑ ÀÌÈÄ ¾²·¯Á® Àáµç´Ù.
+	ê²Œìž„ì˜ ì²« ë²ˆì§¸ ë¼ìš´ë“œì—ì„œ ê°ì˜¥ì„ í•œ ê°œì”© ëª¨ë‘ ì—°ë‹¤. 
+	ê·¸ ë‹¤ìŒ ë¼ìš´ë“œì—ì„œëŠ” 2, 4, 6, ... ë²ˆ ë°©ì„ ë‹¤ì‹œ ìž ê·¸ê³ , 
+	ì„¸ ë²ˆì§¸ ë¼ìš´ë“œì—ì„œëŠ” 3, 6, 9, ... ë²ˆ ë°©ì´ ì—´ë ¤ìžˆìœ¼ë©´ ìž ê·¸ê³ , ìž ê²¨ìžˆë‹¤ë©´ ì—°ë‹¤. 
+	kë²ˆì§¸ ë¼ìš´ë“œì—ì„œëŠ” ë²ˆí˜¸ê°€ kì˜ ë°°ìˆ˜ì¸ ë°©ì´ ì—´ë ¤ ìžˆìœ¼ë©´ ìž ê·¸ê³ , ìž ê²¨ ìžˆë‹¤ë©´ ì—°ë‹¤.
+	ì´ë ‡ê²Œ në²ˆì§¸ ë¼ìš´ë“œê¹Œì§€ ì§„í–‰í•œ ì´í›„ ì“°ëŸ¬ì ¸ ìž ë“ ë‹¤.
 	
-	ÇÐ»ýµéÀº »ó¹üÀÌ°¡ ¾²·¯Á®¹ö·È´Ü °ÍÀ» ±ú´Ý°í Áï½Ã µµ¸ÁÄ£´Ù.
+	í•™ìƒë“¤ì€ ìƒë²”ì´ê°€ ì“°ëŸ¬ì ¸ë²„ë ¸ë‹¨ ê²ƒì„ ê¹¨ë‹«ê³  ì¦‰ì‹œ ë„ë§ì¹œë‹¤.
 	
-	¹æÀÇ °³¼ö°¡ ÁÖ¾îÁ³À» ¶§, ¸î ¸íÀÇ ÇÐ»ýµéÀÌ µµÁÖÇÒ ¼ö ÀÖ´ÂÁö ¾Ë¾Æº¸ÀÚ.
+	ë°©ì˜ ê°œìˆ˜ê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ëª‡ ëª…ì˜ í•™ìƒë“¤ì´ ë„ì£¼í•  ìˆ˜ ìžˆëŠ”ì§€ ì•Œì•„ë³´ìž.
 	
-	ÀÔ·ÂÀÇ Ã¹ ¹øÂ° ÁÙ¿¡´Â Å×½ºÆ®ÀÇ È½¼ö T°¡ ÁÖ¾îÁø´Ù. 
-	°¢ Å×½ºÆ® ÄÉÀÌ½º´Â ÇÑ ÁÙ¿¡ ÇÑ °³¾¿ ¹æÀÇ °³¼ö n(5 ¡Â n ¡Â 100)ÀÌ ÁÖ¾îÁø´Ù.
+	ìž…ë ¥ì˜ ì²« ë²ˆì§¸ ì¤„ì—ëŠ” í…ŒìŠ¤íŠ¸ì˜ íšŸìˆ˜ Tê°€ ì£¼ì–´ì§„ë‹¤. 
+	ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ëŠ” í•œ ì¤„ì— í•œ ê°œì”© ë°©ì˜ ê°œìˆ˜ n(5 â‰¤ n â‰¤ 100)ì´ ì£¼ì–´ì§„ë‹¤.
 
-	ÇÑ ÁÙ¿¡ ÇÑ °³¾¿ °¢ Å×½ºÆ® ÄÉÀÌ½ºÀÇ ´ä, Áï ¸î ¸íÀÌ Å»ÃâÇÒ ¼ö ÀÖ´ÂÁö¸¦ Ãâ·ÂÇÑ´Ù.
+	í•œ ì¤„ì— í•œ ê°œì”© ê° í…ŒìŠ¤íŠ¸ ì¼€ì´ìŠ¤ì˜ ë‹µ, ì¦‰ ëª‡ ëª…ì´ íƒˆì¶œí•  ìˆ˜ ìžˆëŠ”ì§€ë¥¼ ì¶œë ¥í•œë‹¤.
 
-	ÀÔ·Â : 
+	ìž…ë ¥ : 
 	2
 	5
 	100
 
-	Ãâ·Â :
+	ì¶œë ¥ :
 	2
 	10
 */
@@ -34,15 +34,15 @@ std::vector<int> m_vResult;
 
 namespace DrunkenSangbum
 {
-	//a_nLevel : ÇöÀç ·¹º§
-	//a_nRooms : µ¹¾Æ¾ß ÇÒ ÃÑ ¹æÀÇ °³¼ö
-	//a_nArray : ¹æ ¿­¸°°Í È®ÀÎ(1 : ¿­¸², 0 : ´ÝÈû)
+	//a_nLevel : í˜„ìž¬ ë ˆë²¨
+	//a_nRooms : ëŒì•„ì•¼ í•  ì´ ë°©ì˜ ê°œìˆ˜
+	//a_nArray : ë°© ì—´ë¦°ê²ƒ í™•ì¸(1 : ì—´ë¦¼, 0 : ë‹«íž˜)
 	void mainGame(int a_nLevel, int a_nRooms, std::vector<int> a_vResult)
 	{
-		//¿­¾î¾ß ÇÒ ¹æÀÇ ¹øÈ£
+		//ì—´ì–´ì•¼ í•  ë°©ì˜ ë²ˆí˜¸
 		int nCurrentValue = a_nLevel;
 
-		//!¹æ ¹øÈ£°¡ ÃÖ´ñ°ªº¸´Ù ÀÛÀ¸¸é
+		//!ë°© ë²ˆí˜¸ê°€ ìµœëŒ“ê°’ë³´ë‹¤ ìž‘ìœ¼ë©´
 		while (nCurrentValue < a_nRooms + 1)
 		{
 			int nValue = a_vResult[nCurrentValue];
@@ -111,3 +111,4 @@ namespace DrunkenSangbum
 		return 0;
 	}
 }
+
