@@ -1,17 +1,17 @@
 #include "LCK.h"
 #include <queue>
 /*
-LCS(Longest Common Subsequence, ÃÖÀå °øÅë ºÎºÐ ¼ö¿­)¹®Á¦´Â µÎ ¼ö¿­ÀÌ ÁÖ¾îÁ³À» ¶§,
-¸ðµÎÀÇ ºÎºÐ ¼ö¿­ÀÌ µÇ´Â ¼ö¿­ Áß °¡Àå ±ä °ÍÀ» Ã£´Â ¹®Á¦ÀÌ´Ù.
+LCS(Longest Common Subsequence, ìµœìž¥ ê³µí†µ ë¶€ë¶„ ìˆ˜ì—´)ë¬¸ì œëŠ” ë‘ ìˆ˜ì—´ì´ ì£¼ì–´ì¡Œì„ ë•Œ,
+ëª¨ë‘ì˜ ë¶€ë¶„ ìˆ˜ì—´ì´ ë˜ëŠ” ìˆ˜ì—´ ì¤‘ ê°€ìž¥ ê¸´ ê²ƒì„ ì°¾ëŠ” ë¬¸ì œì´ë‹¤.
 
-¿¹¸¦ µé¾î, ACAYKP¿Í CAPCAKÀÇ LCS´Â ACAK°¡ µÈ´Ù.
+ì˜ˆë¥¼ ë“¤ì–´, ACAYKPì™€ CAPCAKì˜ LCSëŠ” ACAKê°€ ëœë‹¤.
 
-ÀÔ·Â
-Ã¹Â° ÁÙ°ú µÑÂ° ÁÙ¿¡ µÎ ¹®ÀÚ¿­ÀÌ ÁÖ¾îÁø´Ù. ¹®ÀÚ¿­Àº ¾ËÆÄºª ´ë¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç,
-ÃÖ´ë 1000±ÛÀÚ·Î ÀÌ·ç¾îÁ® ÀÖ´Ù.
+ìž…ë ¥
+ì²«ì§¸ ì¤„ê³¼ ë‘˜ì§¸ ì¤„ì— ë‘ ë¬¸ìžì—´ì´ ì£¼ì–´ì§„ë‹¤. ë¬¸ìžì—´ì€ ì•ŒíŒŒë²³ ëŒ€ë¬¸ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìœ¼ë©°,
+ìµœëŒ€ 1000ê¸€ìžë¡œ ì´ë£¨ì–´ì ¸ ìžˆë‹¤.
 
-Ãâ·Â
-Ã¹Â° ÁÙ¿¡ ÀÔ·ÂÀ¸·Î ÁÖ¾îÁø µÎ ¹®ÀÚ¿­ÀÇ LCSÀÇ ±æÀÌ¸¦ Ãâ·ÂÇÑ´Ù.
+ì¶œë ¥
+ì²«ì§¸ ì¤„ì— ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§„ ë‘ ë¬¸ìžì—´ì˜ LCSì˜ ê¸¸ì´ë¥¼ ì¶œë ¥í•œë‹¤.
 
 ACAYKP
 CAPCAK
@@ -67,7 +67,7 @@ namespace LCK
 		std::queue<char> oMainQueue;
 		std::queue<char> oSubQueue;
 
-		printf("¸ÞÀÎ ´Ü¾î ÀÔ·Â :");
+		printf("ë©”ì¸ ë‹¨ì–´ ìž…ë ¥ :");
 		fgets(oSent, 1000, stdin);
 		char *ptr = strtok(oSent, "\0");
 		for (int i = 0; i < strlen(ptr) - 1; ++i)
@@ -75,7 +75,7 @@ namespace LCK
 			oMainQueue.push(ptr[i]);
 		}
 
-		printf("¼­ºê ´Ü¾î ÀÔ·Â :");
+		printf("ì„œë¸Œ ë‹¨ì–´ ìž…ë ¥ :");
 		fgets(oSent, 1000, stdin);
 		ptr = strtok(oSent, "\0");
 		for (int i = 0; i < strlen(ptr) - 1; ++i)
@@ -88,3 +88,4 @@ namespace LCK
 		return 0;
 	}
 }
+
