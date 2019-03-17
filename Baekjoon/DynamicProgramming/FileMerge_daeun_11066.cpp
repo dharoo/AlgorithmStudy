@@ -18,7 +18,7 @@ int GetMergeCost(int start, int end)
 
 	int minCost = INT_MAX;
 
-	for (int i = start; i < end; ++i)	// a ~ b, b + 1 ~ cÀÇ ¸ðµç °æ¿ì¸¦ »ý°¢ÇØ¾ßÇÑ´Ù!
+	for (int i = start; i < end; ++i)	// a ~ b, b + 1 ~ cì˜ ëª¨ë“  ê²½ìš°ë¥¼ ìƒê°í•´ì•¼í•œë‹¤!
 	{
 		int cost = 0;
 		cost += GetMergeCost(start, i);
@@ -44,7 +44,7 @@ int main()
 		int k = 0;
 		scanf("%d", &k);
 		
-		memset(cache, 0, BF_SIZE*BF_SIZE * sizeof(int));	// memsetÀº °¢ Å×½ºÆ®ÄÉÀÌ½º¸¶´Ù ÇÊ¿ä!
+		memset(cache, 0, BF_SIZE*BF_SIZE * sizeof(int));	// memsetì€ ê° í…ŒìŠ¤íŠ¸ì¼€ì´ìŠ¤ë§ˆë‹¤ í•„ìš”!
 
 		for (int i = 0; i < k; ++i)
 		{
