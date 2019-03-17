@@ -8,13 +8,13 @@ int cache[BF_SIZE];
 
 long long GetNumOfTiling(int n)
 {
-	// base case - ¾ø¾îµµµÊ, ¾Æ·¡ Ä³½Ã¿¡¼­ Ã¼Å©
+	// base case - ì—†ì–´ë„ë¨, ì•„ë˜ ìºì‹œì—ì„œ ì²´í¬
 	if (n <= 2) return cache[n];
 
 	// cache check
 	if (cache[n] != 0) return cache[n];
 
-	// |== ·Î ½ÃÀÛÇÏ´Â°æ¿ì¿Í ||, == ·Î ½ÃÀÛÇÏ´Â°æ¿ì
+	// |== ë¡œ ì‹œì‘í•˜ëŠ”ê²½ìš°ì™€ ||, == ë¡œ ì‹œì‘í•˜ëŠ”ê²½ìš°
 	long long result = GetNumOfTiling(n - 3) % 10007 + GetNumOfTiling(n - 2) % 10007 * cache[2];
 
 	return cache[n] = result % 10007;
