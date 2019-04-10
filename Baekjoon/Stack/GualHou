@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+	static void Main(string[] args)
+	{
+		Stack<char> list = new Stack<char>();
+		int nSize = int.Parse(Console.ReadLine());
+		String text;
+		bool bEnd = false;
+
+		for(int i = 0; i<nSize; ++i)
+		{
+			list.Clear();
+			bEnd = false;
+			text = Console.ReadLine();
+
+			for(int j = 0; j< text.Length; ++j)
+			{
+				if(text[j] =='(')
+				{
+					list.Push('(');
+				}
+				else
+				{
+					if (list.Count != 0)
+					{
+						list.Pop();
+					}
+					else
+					{
+						Console.WriteLine("NO");
+						bEnd = true;
+						break;
+					}
+				}
+			}
+
+			if (!bEnd)
+			{
+				if (list.Count != 0)
+				{
+					Console.WriteLine("NO");
+				}
+				else
+				{
+					Console.WriteLine("YES");
+				}
+			}
+		}
+	}
+}
